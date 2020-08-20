@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import MenuSelectionContainer from "./Components/Menu/MenuSelectionContainer";
+import ItemContainer from "./Components/ItemsContainer/ItemContainer";
+import ManagementContainer from "./Components/Management/ManagementContainer";
 
 function App() {
+  const [activeMenu, setCurrentMenu] = useState("Main");
+  const [order, setOrder] = useState([]);
+
+  const addItemToOrder = (item) => {
+    console.log(item.itemName);
+    setOrder([...order, item]);
+    console.log(order);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MenuSelectionContainer
+        setActiveMenu={(value) => setCurrentMenu(value)}
+      ></MenuSelectionContainer>
+      <ItemContainer
+        activeMenu={activeMenu}
+        addItemToOrder={addItemToOrder}
+      ></ItemContainer>
+      <ManagementContainer></ManagementContainer>
     </div>
   );
 }
