@@ -5,7 +5,9 @@
 }
 .itemContainer,
 .menuSelectionContainer,
-.managementContainer {
+.managementContainer,
+.serverContainer,
+.currentOrderContainer {
   background: rgb(0, 7, 99);
   border: 2px solid rgb(0, 0, 0);
   padding: 10px;
@@ -14,7 +16,9 @@
 
 .itemContainer,
 .menuSelectionContainer,
-.managementContainer {
+.managementContainer,
+.serverContainer,
+.currentOrderContainer {
   background: rgb(213, 215, 255);
   width: 80%;
   border: 2px solid rgb(0, 0, 0);
