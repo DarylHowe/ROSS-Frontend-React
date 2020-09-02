@@ -8,7 +8,9 @@ function ItemButton(props) {
       className="itemButton"
       onClick={() => props.addItemToOrder(props.item)}
     >
-      {itemName} ${itemPrice}
+      {itemName}
+      <br></br>
+      <br></br>${itemPrice}
     </button>
   );
 }

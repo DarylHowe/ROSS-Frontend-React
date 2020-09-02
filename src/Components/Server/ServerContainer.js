@@ -64,40 +64,59 @@ function ServerContainer(props) {
 
   return (
     <div className="serverContainer">
-      Server List:
-      {serverList.map((server) => (
-        <Server
-          key={server.serverId}
-          server={server}
-          setActiveServer={(value) => setActiveServerId(value)}
-          setActiveTable={() => setActiveTable("NO ACTIVE TABLE")}
-          setActiveTable={props.setActiveTable(activeTable)}
-          setActiveServerId={props.setActiveServerId(activeServerId)}
-        ></Server>
-      ))}
-      <b>Active Server ID: {activeServerId}</b>
-      <b>Active Table: {activeTable}</b>
-      {activeServerTableList.map((tableList) => (
-        <Table
-          key={tableList}
-          tableNumber={tableList}
-          setActiveTable={(value) => setActiveTable(value)}
-        ></Table>
-      ))}
-      <form onSubmit={onSubmit} className="submitTableNumber">
-        <input
-          type="text"
-          name="createTable"
-          placeholder="Enter New Table.."
-          onChange={onCreateNewTableChange}
-        />
+      <div className="serverInfo">
+        <b>Active Server ID: {activeServerId}</b>
+        <br></br>
+        <b>Active Table: {activeTable}</b>
+      </div>
+      <div className="serverSelection">
+        <b>Servers:</b>
+        <br></br>
+        <br></br>
+        {serverList.map((server) => (
+          <Server
+            key={server.serverId}
+            server={server}
+            setActiveServer={(value) => setActiveServerId(value)}
+            setActiveTable={() => setActiveTable("NO ACTIVE TABLE")}
+            setActiveTable={props.setActiveTable(activeTable)}
+            setActiveServerId={props.setActiveServerId(activeServerId)}
+          ></Server>
+        ))}
+      </div>
 
-        <input
-          type="submit"
-          value="Submit"
-          className="submitTableNumberButton"
-        />
-      </form>
+      <div className="tableListDisplay">
+        <b>Tables:</b>
+        <br></br>
+        <br></br>
+        {activeServerTableList.map((tableList) => (
+          <Table
+            key={tableList}
+            tableNumber={tableList}
+            setActiveTable={(value) => setActiveTable(value)}
+          ></Table>
+        ))}
+      </div>
+      <div className="createNewTable">
+        <b>Create Table:</b>
+        <br></br>
+        <br></br>
+        <form onSubmit={onSubmit} className="submitTableNumber">
+          <input
+            type="text"
+            name="createTable"
+            placeholder="Enter New Table.."
+            onChange={onCreateNewTableChange}
+          />
+          <br></br>
+          <input
+            className="submitButton"
+            type="submit"
+            value="Create Table"
+            className="submitTableNumberButton"
+          />
+        </form>
+      </div>
     </div>
   );
 }

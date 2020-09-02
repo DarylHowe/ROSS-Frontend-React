@@ -28,7 +28,7 @@ function CreateNewMenu() {
   };
 
   return (
-    <div>
+    <div className="createNewMenu">
       <b>Create New Menu </b>
       <form onSubmit={onSubmit}>
         <input
@@ -37,8 +37,8 @@ function CreateNewMenu() {
           placeholder="Menu Name.."
           onChange={onMenuNameChange}
         />
-
-        <input type="submit" value="Submit" className="btn" />
+        <br></br>
+        <input type="submit" value="Create New Menu" className="btn" />
       </form>
     </div>
   );

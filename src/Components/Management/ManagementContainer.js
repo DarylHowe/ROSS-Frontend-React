@@ -8,8 +8,12 @@ function ManagementContainer() {
   return (
     <div className="managementContainer">
       <CreateNewMenu></CreateNewMenu>
+
       <CreateNewItem></CreateNewItem>
+
       <DeleteItem></DeleteItem>
+      <br></br>
+      <br></br>
       <DeleteMenu></DeleteMenu>
     </div>
   );

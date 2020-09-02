@@ -24,7 +24,7 @@ function DeleteMenu() {
   };
 
   return (
-    <div>
+    <div className="deleteMenu">
       <b>Delete Menu By Name </b>
 
       <form onSubmit={onSubmit}>
@@ -34,8 +34,8 @@ function DeleteMenu() {
           placeholder="Menu Name.."
           onChange={(e) => setMenuName(e.target.value)}
         />
-
-        <input type="submit" value="Submit" className="btn" />
+        <br></br>
+        <input type="submit" value="Delete Menu" className="btn" />
       </form>
     </div>
   );

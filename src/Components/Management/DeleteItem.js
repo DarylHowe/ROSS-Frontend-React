@@ -28,8 +28,8 @@ function DeleteItem() {
   };
 
   return (
-    <div>
-      <b>Delete Food Item By Name </b>
+    <div className="deleteItem">
+      <b>Delete Item By Name </b>
 
       <form onSubmit={onSubmit}>
         <input
@@ -41,6 +41,7 @@ function DeleteItem() {
           }
         />
 
+        <br></br>
         <input
           type="text"
           name="itemType"
@@ -49,8 +50,8 @@ function DeleteItem() {
             setItem({ itemName: item.itemName, itemType: e.target.value })
           }
         />
-
-        <input type="submit" value="Submit" className="btn" />
+        <br></br>
+        <input type="submit" value="Delete Item" className="btn" />
       </form>
     </div>
   );

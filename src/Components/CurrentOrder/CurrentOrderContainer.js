@@ -1,29 +1,44 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import OrderItem from "./OrderItem";
 
 function CurrentOrderContainer(props) {
   return (
     <div className="currentOrderContainer">
-      {" "}
-      <div>
-        {" "}
-        Server: <b> SERVER: {props.activeServerId} </b>{" "}
+      <div className="currentOrder">
+        <div>
+          <b> Server ID: {props.activeServerId} </b>
+        </div>
+        <div>
+          <b> Active Table: {props.activeTable} </b>
+        </div>
+
+        <div className="orderTitleBar">
+          <div className="orderTitleItem">
+            <b>Item</b>
+          </div>
+
+          <div className="orderTitlePrice">
+            <b>Price</b>
+          </div>
+        </div>
+
+        {props.currentOrder.itemList.map((item) => (
+          <OrderItem item={item}></OrderItem>
+        ))}
+        <br></br>
+        <div className="orderTotalPrice">
+          {" "}
+          <b>Total:</b> $10.99{" "}
+        </div>
+        <br></br>
+        <br></br>
       </div>
-      <div>
-        {" "}
-        Active Table: <b> TABLENUMBER: {props.activeTable} </b>{" "}
-      </div>
-      CurrentOrder{" "}
-      <div className="OrderTitleBar">
-        <div className="OrderTitleItem"> Item </div>
-        <div className="OrderTitlePrice"> Price </div>
-      </div>
-      {props.currentOrder.map((item) => (
-        <OrderItem item={item}></OrderItem>
-      ))}
-      <div className="OrderTotalPrice"> Total: $10.99 </div>
-      <button class="sendToKitchenButton">Send to Kitchen</button>
+      <button
+        className="sendToKitchenButton"
+        onClick={props.sendOrderToKitchen}
+      >
+        Send to Kitchen
+      </button>
     </div>
   );
 }

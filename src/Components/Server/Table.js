@@ -4,7 +4,7 @@ function Table(props) {
   return (
     <div>
       <button
-        className="tableNumberButton"
+        className="tableButton"
         onClick={() => props.setActiveTable(props.tableNumber)}
       >
         Table: {props.tableNumber}{" "}

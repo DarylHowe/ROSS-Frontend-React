@@ -1,26 +1,296 @@
 .App {
-  text-align: center;
-  padding: 0px;
+  padding: 10px;
   margin: 0px;
+  width: 80%;
+  background: rgb(0, 0, 0);
+  margin: auto;
+  height: 2130px;
 }
+
+.serverContainer,
 .itemContainer,
 .menuSelectionContainer,
 .managementContainer,
-.serverContainer,
-.currentOrderContainer {
-  background: rgb(0, 7, 99);
+.currentOrderContainer,
+.processedOrderContainer,
+.kitchenContainer {
   border: 2px solid rgb(0, 0, 0);
   padding: 10px;
   overflow: auto;
-}
-
-.itemContainer,
-.menuSelectionContainer,
-.managementContainer,
-.serverContainer,
-.currentOrderContainer {
-  background: rgb(213, 215, 255);
-  width: 80%;
+  background: rgb(0, 13, 189);
+  background: rgb(0, 3, 151);
+  background: rgb(0, 2, 95);
+  color: white;
+  width: 100%;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 10px;
+  margin: auto;
+  text-align: center;
 }
+
+button {
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 3px;
+  background-color: rgb(97, 236, 213);
+}
+
+input {
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  color: black;
+  margin-top: 5px;
+}
+
+/* //////////// SERVER START //////////// */
+.serverContainer {
+  width: 97%;
+  min-height: 100px;
+}
+
+.serverButton,
+.tableButton {
+  width: 170px;
+  height: 30px;
+  color: white;
+  background-color: rgb(66, 181, 235);
+}
+
+.serverInfo {
+  margin-bottom: 10px;
+}
+
+.serverSelection,
+.tableListDisplay,
+.createNewTable {
+  background: rgb(0, 1, 65);
+  border-radius: 2px;
+  border-radius: 2px;
+  width: 30%;
+  float: left;
+  min-height: 160px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.serverSelection button {
+  margin-top: 5px;
+}
+
+.tableListDisplay button {
+  width: 100px;
+  float: left;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+.createNewTable {
+}
+
+/* //////////// SERVER END //////////// */
+
+/* //////////// MENU START //////////// */
+
+.menuSelectionContainer {
+  width: 99%;
+  padding: 0px;
+  min-height: 40px;
+}
+
+.menuButton {
+  min-height: 50px;
+  width: 80px;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  background-color: rgb(68, 71, 255);
+  color: white;
+  float: left;
+}
+
+/* //////////// MENU END //////////// */
+
+/* //////////// ITEMS START //////////// */
+
+.itemContainer {
+  min-height: 300px;
+  width: 56.5%;
+  float: left;
+  margin-left: 3px;
+  padding: 0px;
+}
+
+.itemButton {
+  word-wrap: break-word;
+  height: 90px;
+  width: 70px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: rgb(67, 214, 75);
+  color: white;
+  float: left;
+}
+
+/* //////////// ITEMS END //////////// */
+
+/* //////////// CURRENT ORDER START //////////// */
+
+.currentOrderContainer {
+  height: 260px;
+  width: 38%;
+  float: left;
+  background: rgb(0, 2, 95);
+  padding: 20px;
+}
+
+.currentOrder {
+  height: 205px;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+
+.orderTitleItem {
+  float: left;
+}
+
+.orderTitlePrice {
+  float: right;
+}
+
+.orderItem {
+  clear: both;
+}
+
+.orderItemName {
+  float: left;
+}
+
+.orderItemPrice {
+  float: right;
+}
+
+.orderDeleteButton {
+  background-color: rgb(255, 68, 68);
+}
+
+.orderTotalPrice {
+  float: right;
+}
+
+.sendToKitchenButton {
+  background-color: rgb(255, 68, 68);
+  width: 100%;
+  height: 40px;
+}
+
+/* //////////// CURRENT ORDER END //////////// */
+
+/* //////////// PROCESSD ORDER END //////////// */
+
+.processedOrderContainer {
+  width: 40%;
+  height: 250px;
+}
+
+.processedOrder {
+  height: 190px;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+.closeOrderButton {
+  background-color: rgb(255, 68, 68);
+  width: 100%;
+  height: 40px;
+}
+/* //////////// PROCESSD ORDER END //////////// */
+
+/* //////////// KITCHEN START //////////// */
+
+.kitchenContainer {
+  width: 100%;
+  padding: 0px;
+}
+
+.kitchenOrder {
+  float: left;
+  background-color: rgb(255, 68, 68);
+  padding: 5px;
+  margin-left: 12px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  min-height: 200px;
+  border-radius: 3px;
+  color: white;
+}
+
+.kitchenButtons {
+  clear: both;
+}
+
+.kitchenButtons button {
+  height: 40px;
+  width: 70px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  background-color: rgb(67, 214, 75);
+}
+
+/* //////////// KITCHEN END //////////// */
+
+/* //////////// MANAGEMENT START //////////// */
+
+.managementContainer {
+  padding: 0px;
+  float: left;
+  width: 100%;
+}
+
+.managementContainer input {
+  width: 200px;
+}
+
+.createNewMenu,
+.createNewItem,
+.deleteItem,
+.deleteMenu {
+  background: rgb(0, 1, 65);
+  width: 40%;
+  height: 110px;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.createNewMenu {
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.createNewItem {
+  float: right;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.deleteItem {
+  float: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.deleteMenu {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+/* //////////// MANAGEMENT END //////////// */

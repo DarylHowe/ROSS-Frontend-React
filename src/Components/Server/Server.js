@@ -3,9 +3,11 @@ import React from "react";
 function Server(props) {
   return (
     <div>
-      <button onClick={() => props.setActiveServer(props.server.serverId)}>
-        {props.server.serverName}
-        {props.server.serverId}
+      <button
+        className="serverButton"
+        onClick={() => props.setActiveServer(props.server.serverId)}
+      >
+        {props.server.serverName} - ID: {props.server.serverId}
       </button>
     </div>
   );

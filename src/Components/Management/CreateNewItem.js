@@ -39,7 +39,7 @@ function CreateNewItem() {
   };
 
   return (
-    <div>
+    <div className="createNewItem">
       <b>Create New Food Item</b>
 
       <form onSubmit={onSubmit}>
@@ -55,7 +55,7 @@ function CreateNewItem() {
             })
           }
         />
-
+        <br></br>
         <input
           type="text"
           name="itemPrice"
@@ -68,7 +68,7 @@ function CreateNewItem() {
             })
           }
         />
-
+        <br></br>
         <input
           type="text"
           name="itemType"
@@ -81,8 +81,8 @@ function CreateNewItem() {
             })
           }
         />
-
-        <input type="submit" value="Submit" className="btn" />
+        <br></br>
+        <input type="submit" value="Create New Item" className="btn" />
       </form>
     </div>
   );
