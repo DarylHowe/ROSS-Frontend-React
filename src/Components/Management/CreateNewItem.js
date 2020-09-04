@@ -15,17 +15,6 @@ function CreateNewItem() {
   };
 
   const postToDatabase = () => {
-    console.log("Actual");
-    console.log(newItem);
-
-    var x = {
-      itemName: "BLT",
-      itemPrice: 8.5,
-      itemType: "Main",
-    };
-    console.log("Correct");
-    console.log(x);
-
     const URL =
       "http://localhost:8080/menus/addnewitemtomenu/" + newItem.itemType;
     axios.post(URL, newItem).then(
@@ -56,6 +45,7 @@ function CreateNewItem() {
           }
         />
         <br></br>
+
         <input
           type="text"
           name="itemPrice"
@@ -69,6 +59,7 @@ function CreateNewItem() {
           }
         />
         <br></br>
+
         <input
           type="text"
           name="itemType"
@@ -81,6 +72,7 @@ function CreateNewItem() {
             })
           }
         />
+
         <br></br>
         <input type="submit" value="Create New Item" className="btn" />
       </form>

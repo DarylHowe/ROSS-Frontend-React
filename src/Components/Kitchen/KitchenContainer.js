@@ -6,9 +6,6 @@ let kitchenButtonArray = [0, 1, 2, 3, 4, 5, 6, 7];
 let serverButtonArray = [0, 1, 2, 3, 4, 5, 6, 7];
 
 const orderIsReady = (kitchenButtonNumber) => {
-  console.log("Order is ready");
-  console.log(kitchenButtonNumber);
-
   axios
     .post(
       "http://localhost:8080/kitchen/orderisreadybyid/".concat(
@@ -24,9 +21,6 @@ const orderIsReady = (kitchenButtonNumber) => {
 };
 
 const orderIsServed = (serverButtonNumber) => {
-  console.log("Order is served");
-  console.log(serverButtonNumber);
-
   axios
     .post(
       "http://localhost:8080/kitchen/orderisservedbyid/".concat(
@@ -48,7 +42,6 @@ function KitchenContainer() {
     axios
       .get("http://localhost:8080/kitchen/getallorders")
       .then((res) => {
-        console.log(res);
         setKitchenOrderList(res.data);
       })
       .catch((error) => {

@@ -2,6 +2,12 @@ import React from "react";
 import OrderItem from "./OrderItem";
 
 function CurrentOrderContainer(props) {
+  let total = 0;
+
+  {
+    props.currentOrder.itemList.map((item) => (total = total + item.itemPrice));
+  }
+
   return (
     <div className="currentOrderContainer">
       <div className="currentOrder">
@@ -23,16 +29,22 @@ function CurrentOrderContainer(props) {
         </div>
 
         {props.currentOrder.itemList.map((item) => (
-          <OrderItem item={item}></OrderItem>
+          <OrderItem
+            item={item}
+            deleteOrderItem={props.deleteOrderItem}
+          ></OrderItem>
         ))}
+
         <br></br>
         <div className="orderTotalPrice">
           {" "}
-          <b>Total:</b> $10.99{" "}
+          <b>Total:</b> ${total}
         </div>
+
         <br></br>
         <br></br>
       </div>
+
       <button
         className="sendToKitchenButton"
         onClick={props.sendOrderToKitchen}

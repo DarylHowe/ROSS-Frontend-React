@@ -2,18 +2,12 @@ import React from "react";
 
 function Kitchenorder(props) {
   const {
-    orderId,
     tableNumber,
-    totalPrice,
     isReadyToBeServed,
     timeStamp,
     totalItems,
     itemList,
   } = props.order;
-
-  let inputStyle = {
-    border: "1px solid black",
-  };
 
   return (
     <div className="kitchenOrder">

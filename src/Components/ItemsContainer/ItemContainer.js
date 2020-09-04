@@ -9,7 +9,6 @@ function ItemContainer(props) {
     axios
       .get("http://localhost:8080/menus/getallmenuitems/" + props.activeMenu)
       .then((res) => {
-        console.log(res);
         setItemList(res.data);
       })
       .catch((error) => {

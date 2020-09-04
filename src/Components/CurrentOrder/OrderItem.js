@@ -4,9 +4,15 @@ function OrderItem(props) {
   return (
     <div className="orderItem">
       <div className="orderItemName"> {props.item.itemName} </div>
-      <div className="orderItemPrice"> ${props.item.itemPrice} </div>
 
-      <button className="orderDeleteButton"> X </button>
+      <button
+        className="deleteItemFromOrder"
+        onClick={() => props.deleteOrderItem(props.item.itemId)}
+      >
+        {" "}
+        X{" "}
+      </button>
+      <div className="orderItemPrice"> ${props.item.itemPrice} </div>
     </div>
   );
 }

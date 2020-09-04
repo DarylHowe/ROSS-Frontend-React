@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import Table from "./Table";
 import Server from "./Server";
 
+// Contains a list of servers.
+// The active server ID can be selected via the 'Server' button(s).
+// Depending on which server is active their list of active tables will be displayed.
+// A server can create/add a new table to their active tables list.
+// The active table can be selected via the 'Table' button(s).
 function ServerContainer(props) {
   const [serverList, setServerList] = useState([]);
-  const [activeServerId, setActiveServerId] = useState(-1);
   const [activeServerTableList, setActiveServerTableList] = useState([]);
-  const [activeTable, setActiveTable] = useState(-1);
   const [newTableNumber, setNewTableNumber] = useState();
 
+  // Loads all the servers on application load.
   useEffect(() => {
     axios
       .get("http://localhost:8080/server/getallservers")
       .then((res) => {
-        console.log(res);
         setServerList(res.data);
       })
       .catch((error) => {
@@ -23,32 +25,37 @@ function ServerContainer(props) {
       });
   }, []);
 
+  // Gets a servers active table numbers list.
   useEffect(() => {
     axios
-      .get("http://localhost:8080/server/getservertables/" + activeServerId)
+      .get(
+        "http://localhost:8080/server/getservertables/" + props.activeServerId
+      )
       .then((res) => {
-        console.log(res);
         setActiveServerTableList(res.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [activeServerId]);
+  }, [props.activeServerId]);
 
+  // Submit button for createNewTable
   const onSubmit = (e) => {
     e.preventDefault();
-    postToDatabase();
+    addTableToServerList();
     setNewTableNumber();
   };
 
+  // Updates 'newTableNumber' every time user enters/removes a digit from create table input.
   const onCreateNewTableChange = (e) => {
     setNewTableNumber(e.target.value);
   };
 
-  const postToDatabase = () => {
+  // Adds a new table (as specified using the text input) to the active servers table list.
+  const addTableToServerList = () => {
     const URL =
       "http://localhost:8080/server/addtabletotablelist/" +
-      activeServerId +
+      props.activeServerId +
       "/" +
       newTableNumber;
 
@@ -65,42 +72,41 @@ function ServerContainer(props) {
   return (
     <div className="serverContainer">
       <div className="serverInfo">
-        <b>Active Server ID: {activeServerId}</b>
+        <b>Active Server ID: {props.activeServerId}</b>
         <br></br>
-        <b>Active Table: {activeTable}</b>
+        <b>Active Table: {props.activeTable}</b>
       </div>
+
       <div className="serverSelection">
         <b>Servers:</b>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
         {serverList.map((server) => (
           <Server
             key={server.serverId}
             server={server}
-            setActiveServer={(value) => setActiveServerId(value)}
-            setActiveTable={() => setActiveTable("NO ACTIVE TABLE")}
-            setActiveTable={props.setActiveTable(activeTable)}
-            setActiveServerId={props.setActiveServerId(activeServerId)}
+            setActiveServerId={props.setActiveServerId}
           ></Server>
         ))}
       </div>
 
       <div className="tableListDisplay">
         <b>Tables:</b>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
         {activeServerTableList.map((tableList) => (
           <Table
             key={tableList}
             tableNumber={tableList}
-            setActiveTable={(value) => setActiveTable(value)}
+            setActiveTable={props.setActiveTable}
           ></Table>
         ))}
       </div>
+
       <div className="createNewTable">
         <b>Create Table:</b>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
         <form onSubmit={onSubmit} className="submitTableNumber">
           <input
             type="text"
@@ -108,9 +114,8 @@ function ServerContainer(props) {
             placeholder="Enter New Table.."
             onChange={onCreateNewTableChange}
           />
-          <br></br>
+          <br />
           <input
-            className="submitButton"
             type="submit"
             value="Create Table"
             className="submitTableNumberButton"

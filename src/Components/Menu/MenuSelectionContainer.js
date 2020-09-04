@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MenuButton from "./MenuButton";
 
+// The selection of menus to choose from.
 function MenuSelectionContainer(props) {
   const [menuList, setMenuList] = useState([]);
 
+  // Load all the menus from database on application load.
   useEffect(() => {
     axios
       .get("http://localhost:8080/menus/getallmenunames")
       .then((res) => {
-        console.log(res);
         setMenuList(res.data);
       })
       .catch((error) => {
